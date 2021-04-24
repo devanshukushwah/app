@@ -1,0 +1,11 @@
+header {
+  padding: 1rem 2rem;
+  background: #aeff4d;
+  position: relative;
+  z-index: 1;
+}
+button {
+  min-width: fit-content;
+  padding: 1rem 2rem;
+  margin-right: 0.5rem;
+}

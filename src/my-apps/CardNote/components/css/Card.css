@@ -1,0 +1,13 @@
+.box-card {
+  background: #fff;
+  padding: 2px 5px;
+  border-radius: 2px;
+  margin: 5px 5px;
+  border: 1px solid #595959;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: none;
+  display: flex;
+  /* justify-content: flex-start; */
+  place-items: center;
+}

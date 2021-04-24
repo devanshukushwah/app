@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import CardNote from "./my-apps/CardNote";
+import CardNote from "./my-apps/CardNote/CardNote";
 function App() {
   return (
     <Router>

@@ -1,0 +1,12 @@
+.box-folder {
+  border-radius: 2px;
+  background: #fff;
+  padding: 2px 5px;
+  border: 1px solid #595959;
+  margin: 5px 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: none;
+  display: flex;
+  place-items: center;
+}

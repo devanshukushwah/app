@@ -1,0 +1,31 @@
+.modal-container {
+  /* position: absolute; */
+  /* display: grid; */
+  /* place-items: center; */
+  z-index: 99;
+}
+.modal-container form {
+  background: white;
+  padding: 1rem 2rem;
+  /* border-radius: 5px; */
+  display: block;
+}
+
+.addcard input {
+  /* display: none; */
+  height: 25px;
+  padding: 0 5px;
+  margin-right: 5px;
+}
+.addcard button {
+  border: none;
+  /* background: none; */
+  height: 25px;
+  padding: 0 5px;
+  background: #e5ba67;
+  color: white;
+  font-weight: bold;
+}
+.addcard button:hover {
+  background: #c48d22;
+}
