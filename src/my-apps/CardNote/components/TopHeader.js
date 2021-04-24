@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./css/TopHeader.css";
-import firebase from "../utils/firebase";
 import AddCard from "./AddCard";
 import AddFolder from "./AddFolder";
 

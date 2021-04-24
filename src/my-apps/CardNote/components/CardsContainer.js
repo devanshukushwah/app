@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import firebase from "../utils/firebase";
+import React from "react";
 import "./css/CardsContainer.css";
 import Card from "./Card";
 import Folder from "./Folder";
