@@ -1,10 +1,13 @@
 import React from "react";
 import "./css/Folder.css";
+import { FaFolder } from "react-icons/fa";
 
 function Folder({ title }) {
   return (
     <div className="box-folder">
-      <h4>{title}</h4>
+      <p>
+        <FaFolder /> {title}
+      </p>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./css/TopHeader.css";
 import AddCard from "./AddCard";
 import AddFolder from "./AddFolder";
+import { FaFolderPlus, FaPlus } from "react-icons/fa";
 
 function TopHeader({ setIsOperation, isOperation }) {
   const [folder, setFolder] = useState(false);
@@ -25,8 +26,13 @@ function TopHeader({ setIsOperation, isOperation }) {
   return (
     <>
       <header>
-        <button onClick={addFolder}>Add Folder</button>
-        <button onClick={addCard}>Add Card</button>
+        <button onClick={addFolder}>
+          <FaFolderPlus /> Add Folder
+        </button>
+        <button onClick={addCard}>
+          <FaPlus />
+          Add Card
+        </button>
       </header>
       {folder && (
         <AddFolder title={title} setTitle={setTitle} addFolder={addFolder} />
