@@ -1,9 +1,10 @@
 .cards-container {
   padding: 0.5rem 1.7rem;
   min-height: calc(100vh - 100px);
+  /* height: 60px; */
   display: grid;
   grid-template-rows: repeat(auto-fit, 120px);
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   /* grid-template-columns: repeat(auto-fit, minmax(223.33px, 1fr)); */
   /* grid-template-rows: repeat(auto-fit, minmax(16px, 1fr)); */
 }
