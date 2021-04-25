@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./CardNote.css";
 import TopHeader from "./components/TopHeader";
 import CardsContainer from "./components/CardsContainer";
