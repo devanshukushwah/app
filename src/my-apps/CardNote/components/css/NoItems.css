@@ -1,0 +1,23 @@
+.no-items {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.65;
+  user-select: none;
+}
+
+.no-items .wrap {
+  display: flex;
+  align-items: center;
+}
+.no-items .wrap .del-icon {
+  font-size: 80px;
+}
+.no-items .wrap p {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+}

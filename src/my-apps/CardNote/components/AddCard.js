@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import "./css/AddFolder-AddCard.css";
 import firebase from "../utils/firebase";
 
-function AddCard({ setValue, value, title, setTitle, addCard }) {
+function AddCard({ setValue, value, title, setTitle, addCard, url }) {
   const refContainer = useRef(null);
 
   useEffect(() => {
@@ -11,13 +11,14 @@ function AddCard({ setValue, value, title, setTitle, addCard }) {
   const handleCardSubmit = (e) => {
     e.preventDefault();
     addCard();
-    const ref = firebase.database().ref("cardnote/");
     const data = {
-      title,
-      value,
+      id: new Date().getTime().toString(),
+      value: value.trim(),
+      title: title.trim(),
       type: "card",
     };
-    ref.push(data);
+    const ref = firebase.database().ref(`${url}/cards/${data.id}`);
+    ref.set(data);
     setTitle("");
     setValue("");
   };

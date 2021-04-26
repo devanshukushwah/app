@@ -4,28 +4,35 @@ import Card from "./Card";
 import Folder from "./Folder";
 import firebase from "../utils/firebase";
 import Loader from "./Loader";
+import NoItems from "./NoItems";
 
-function CardsContainer({ isOperation }) {
+function CardsContainer({ isOperation, url, setUrl }) {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const [listWithPageLevel, setListWithPageLevel] = useState([[]]);
+  const [currentPageLevel, setCurrentPageLevel] = useState(0);
   const [listData, setListData] = useState(null);
   const refContainer = useRef(null);
+
   const fetchdata = () => {
-    const ref = firebase.database().ref("cardnote/");
-    ref.on("value", (snapshot) => {
-      var tempList = [];
+    const tempList = [];
+
+    const ref = firebase.database().ref(`${url}/folders/`);
+    ref.once("value", (snapshot) => {
       const data = snapshot.val();
-      for (let id in data) {
-        if (data[id].type === "folder") {
-          tempList.push(data[id]);
-        }
+      for (let i in data) {
+        tempList.push(data[i]);
       }
-      for (let id in data) {
-        if (data[id].type === "card") {
-          tempList.push(data[id]);
-        }
-      }
-      setListData(tempList);
     });
+    const ref2 = firebase.database().ref(`${url}/cards/`);
+    ref2
+      .once("value", (snapshot) => {
+        const data = snapshot.val();
+        for (let i in data) {
+          tempList.push(data[i]);
+        }
+        console.log(tempList);
+      })
+      .then(() => setListData(tempList));
   };
 
   // for updata innerwidth
@@ -40,7 +47,7 @@ function CardsContainer({ isOperation }) {
 
   useEffect(() => {
     fetchdata();
-  }, [isOperation]);
+  }, [isOperation, url]);
 
   // for grid height
   useEffect(() => {
@@ -65,12 +72,22 @@ function CardsContainer({ isOperation }) {
   return (
     <main className="cards-container" ref={refContainer}>
       {!listData && <Loader />}
+      {listData && listData.length == 0 && <NoItems />}
       {listData &&
-        listData.map((item, index) => {
+        listData.map((item) => {
           if (item.type === "folder") {
-            return <Folder key={index} {...item} />;
+            return (
+              <Folder
+                url={url}
+                setUrl={setUrl}
+                key={item.id}
+                listData={listData}
+                setListData={setListData}
+                {...item}
+              />
+            );
           }
-          return <Card key={index} {...item} />;
+          return <Card key={item.id} {...item} />;
         })}
     </main>
   );

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import "./css/AddFolder-AddCard.css";
 import firebase from "../utils/firebase";
 
-function AddFolder({ title, addFolder, setTitle }) {
+function AddFolder({ title, addFolder, setTitle, url }) {
   const refContainer = useRef(null);
   useEffect(() => {
     refContainer.current.focus();
@@ -11,14 +11,25 @@ function AddFolder({ title, addFolder, setTitle }) {
   const handleFolderSubmit = (e) => {
     e.preventDefault();
     addFolder();
-    const ref = firebase.database().ref("cardnote/");
     const data = {
-      title,
+      id: new Date().getTime().toString(),
+      title: title.trim(),
       type: "folder",
     };
-    ref.push(data);
+    const ref = firebase.database().ref(`${url}/folders/${data.id}`);
+    ref.set(data);
+
+    const refForFolder = firebase
+      .database()
+      .ref(`cardnote/directory/${data.title + "-" + data.id}`);
+    const dataDir = {
+      id: new Date().getTime().toString(),
+    };
+    refForFolder.set(dataDir);
+
     setTitle("");
   };
+
   return (
     <main className="modal-container">
       <form className="addcard" onSubmit={handleFolderSubmit}>

@@ -14,7 +14,7 @@ function Card({ title, value }) {
       setIsFliped(true);
     }
   };
-
+  console.log("hadsl");
   return (
     <div className="box-card">
       <div className="box-card-inner" ref={refContainer} onClick={handleClick}>
