@@ -8,8 +8,8 @@ import NoItems from "./NoItems";
 
 function CardsContainer({ isOperation, url, setUrl }) {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-  const [listWithPageLevel, setListWithPageLevel] = useState([[]]);
-  const [currentPageLevel, setCurrentPageLevel] = useState(0);
+  // const [listWithPageLevel, setListWithPageLevel] = useState([[]]);
+  // const [currentPageLevel, setCurrentPageLevel] = useState(0);
   const [listData, setListData] = useState(null);
   const refContainer = useRef(null);
 
@@ -72,7 +72,7 @@ function CardsContainer({ isOperation, url, setUrl }) {
   return (
     <main className="cards-container" ref={refContainer}>
       {!listData && <Loader />}
-      {listData && listData.length == 0 && <NoItems />}
+      {listData && listData.length === 0 && <NoItems />}
       {listData &&
         listData.map((item) => {
           if (item.type === "folder") {

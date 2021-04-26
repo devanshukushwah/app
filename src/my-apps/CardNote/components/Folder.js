@@ -1,9 +1,9 @@
 import React from "react";
 import "./css/Folder.css";
 import { FaFolder } from "react-icons/fa";
-import firebase from "../utils/firebase";
+// import firebase from "../utils/firebase";
 
-function Folder({ id, title, setListData, url, setUrl }) {
+function Folder({ id, title, setListData, setUrl }) {
   const handleFolderClick = () => {
     // const ref = firebase
     // .database()
