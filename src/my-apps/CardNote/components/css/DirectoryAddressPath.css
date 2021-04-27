@@ -9,7 +9,6 @@
 }
 .directory-address-path div {
   display: flex;
-  /* color: #0000ee; */
   color: white;
   align-items: center;
   cursor: default;
@@ -28,7 +27,6 @@
   cursor: pointer;
   color: #551a8b;
   color: rgb(220, 207, 207);
-
   text-decoration: underline;
 }
 
