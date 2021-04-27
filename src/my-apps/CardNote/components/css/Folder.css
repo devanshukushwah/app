@@ -3,7 +3,7 @@
   background: #fff;
   padding: 2px 5px;
   /* border: 1px solid #595959; */
-  margin: 5px 5px;
+  /* margin: 5px 5px; */
   cursor: pointer;
   font-size: 1rem;
   text-transform: none;
@@ -19,4 +19,9 @@
 }
 .box-folder:active {
   transform: scale(0.95);
+}
+
+.box-folder p {
+  display: flex;
+  gap: 2px;
 }

@@ -1,0 +1,27 @@
+.directory-address-path {
+  background: rgb(127, 157, 110);
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 2rem;
+  gap: 2px;
+}
+.directory-address-path div {
+  display: flex;
+  color: #0000ee;
+  align-items: center;
+  cursor: default;
+}
+.directory-address-path div h2 {
+  margin: 0 2px;
+  font-size: 20px;
+}
+.directory-address-path div li {
+  list-style-type: none;
+}
+.directory-address-path div li:hover {
+  cursor: pointer;
+  color: #551a8b;
+  text-decoration: underline;
+}

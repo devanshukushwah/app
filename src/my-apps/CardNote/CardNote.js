@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import "./CardNote.css";
 import TopHeader from "./components/TopHeader";
 import CardsContainer from "./components/CardsContainer";
-// const url = "cardnote/directory/homepage";
 
 function CardNote() {
   const [isOperation, setIsOperation] = useState(true);
-  const [url, setUrl] = useState("cardnote/directory/homepage");
+  const [url, setUrl] = useState("cardnote/directory/homepage-1619422290345");
 
   return (
     <>

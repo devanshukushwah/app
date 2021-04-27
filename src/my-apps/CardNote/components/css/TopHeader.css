@@ -2,10 +2,14 @@ header {
   padding: 1rem 2rem;
   background: #aeff4d;
   position: relative;
+  display: flex;
   z-index: 1;
+  width: 100%;
 }
 header button {
-  min-width: fit-content;
+  display: flex;
+  /* align-items: center; */
+  /* min-width: fit-content; */
   background-color: white;
   border: none;
   border-radius: 4px;
