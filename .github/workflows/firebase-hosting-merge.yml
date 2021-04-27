@@ -6,7 +6,7 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - master
-name: For removing errors due to warnings
+uses: For removing errors due to warnings
 env:
   CI: false
 jobs:
