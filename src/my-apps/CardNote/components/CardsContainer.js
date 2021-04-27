@@ -8,24 +8,11 @@ import NoItems from "./NoItems";
 import DirectoryAddressPath from "./DirectoryAddressPath";
 
 function CardsContainer({ isOperation, url, setUrl }) {
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-  // const [listWithPageLevel, setListWithPageLevel] = useState([[]]);
-  // const [currentPageLevel, setCurrentPageLevel] = useState(0);
   const [directoryPath, setDirectoryPath] = useState([
     { title: "Homepage", url: url },
   ]);
   const [listData, setListData] = useState(null);
   const refContainer = useRef(null);
-
-  // for updata innerwidth
-  const updateWidthAndHeight = () => {
-    setInnerWidth(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", updateWidthAndHeight);
-    return () => window.removeEventListener("resize", updateWidthAndHeight);
-  }, []);
 
   useEffect(() => {
     const fetchdata = () => {
@@ -45,32 +32,11 @@ function CardsContainer({ isOperation, url, setUrl }) {
           for (let i in data) {
             tempList.push(data[i]);
           }
-          // console.log(tempList);
         })
         .then(() => setListData(tempList));
     };
     fetchdata();
   }, [isOperation, url]);
-
-  // for grid height
-  useEffect(() => {
-    if (listData !== null) {
-      const lenData = listData.length;
-      if (lenData > 0) {
-        if (innerWidth < 510) {
-          refContainer.current.style.minHeight = `${120 * lenData}px`;
-        } else if (innerWidth > 509 && innerWidth < 730) {
-          refContainer.current.style.minHeight = `${(lenData / 2) * 140}px`;
-        } else if (innerWidth > 729 && innerWidth < 950) {
-          refContainer.current.style.minHeight = `${(lenData / 3) * 140}px`;
-        } else if (innerWidth > 949 && innerWidth < 1155) {
-          refContainer.current.style.minHeight = `${(lenData / 4) * 140}px`;
-        } else {
-          refContainer.current.style.minHeight = `${(lenData / 5) * 140}px`;
-        }
-      }
-    }
-  }, [listData, innerWidth]);
 
   return (
     <>

@@ -1,5 +1,5 @@
 .directory-address-path {
-  background: rgb(127, 157, 110);
+  background: black;
   height: 1.5rem;
   display: flex;
   align-items: center;
@@ -9,19 +9,29 @@
 }
 .directory-address-path div {
   display: flex;
-  color: #0000ee;
+  /* color: #0000ee; */
+  color: white;
   align-items: center;
   cursor: default;
 }
 .directory-address-path div h2 {
-  margin: 0 2px;
+  margin: 0 1px;
+  color: white;
+
   font-size: 20px;
 }
 .directory-address-path div li {
   list-style-type: none;
+  color: white;
 }
 .directory-address-path div li:hover {
   cursor: pointer;
   color: #551a8b;
+  color: rgb(220, 207, 207);
+
   text-decoration: underline;
+}
+
+.directory-address-path .dir-icon {
+  color: white;
 }

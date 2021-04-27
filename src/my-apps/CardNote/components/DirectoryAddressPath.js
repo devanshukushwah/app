@@ -18,7 +18,7 @@ function DirectoryAddressPath({
   };
   return (
     <div className="directory-address-path">
-      <FiHardDrive />
+      <FiHardDrive className="dir-icon" />
       {directoryPath.map((item, index) => {
         return (
           <div key={index}>
