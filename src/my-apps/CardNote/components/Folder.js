@@ -16,7 +16,7 @@ function Folder({
     // .database()
     // .ref(`cardnote/directory/${title + "-" + id}`);
     // ref.set()
-    const tempUrl = `cardnote/directory/${title + "-" + id}`;
+    const tempUrl = `cardnote/directory/${id}`;
     setUrl(tempUrl);
     setListData(null);
     const data = {

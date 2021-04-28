@@ -5,7 +5,7 @@ import CardsContainer from "./components/CardsContainer";
 
 function CardNote() {
   const [isOperation, setIsOperation] = useState(true);
-  const [url, setUrl] = useState("cardnote/directory/homepage-1619422290345");
+  const [url, setUrl] = useState("cardnote/directory/homepage");
 
   return (
     <>

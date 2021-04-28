@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./css/TopHeader.css";
 import AddCard from "./AddCard";
 import AddFolder from "./AddFolder";
-import { FaFolderPlus, FaPlus } from "react-icons/fa";
+import { FaFolderPlus, FaPlus, FaTrash } from "react-icons/fa";
 import firebase from "../utils/firebase";
 
 function TopHeader({ setIsOperation, isOperation, url, setUrl }) {
@@ -41,14 +41,17 @@ function TopHeader({ setIsOperation, isOperation, url, setUrl }) {
   return (
     <>
       <header>
-        <button onClick={addFolder} className="a123">
-          <FaFolderPlus /> Add Folder
+        <button onClick={addFolder}>
+          <FaFolderPlus /> <p>Folder</p>
         </button>
         <button onClick={addCard}>
           <FaPlus />
-          Add Card
+          <p>Card</p>
         </button>
-        <button onClick={deleteBox}>Delete</button>
+        <button onClick={deleteBox}>
+          <FaTrash />
+          <p>Delete</p>
+        </button>
       </header>
       {folder && (
         <AddFolder

@@ -21,7 +21,7 @@ function AddFolder({ title, addFolder, setTitle, url }) {
 
     const refForFolder = firebase
       .database()
-      .ref(`cardnote/directory/${data.title + "-" + data.id}`);
+      .ref(`cardnote/directory/${data.id}`);
     const dataDir = {
       id: new Date().getTime().toString(),
     };
