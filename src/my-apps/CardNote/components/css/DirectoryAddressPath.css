@@ -22,7 +22,12 @@
 .directory-address-path div li {
   list-style-type: none;
   color: white;
+  white-space: nowrap;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .directory-address-path div li:hover {
   cursor: pointer;
   color: #551a8b;
