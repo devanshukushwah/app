@@ -33,6 +33,7 @@ function CardNote() {
         isOperation={isOperation}
         setUrl={setUrl}
         homepage={homepage}
+        setHomepage={setHomepage}
       />
     </>
   );
