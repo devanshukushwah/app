@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import "./css/AddFolder-AddCard.css";
-import firebase from "../utils/firebase";
+import app from "../auth/authFirebase";
 
 function AddCard({ setValue, value, title, setTitle, addCard, url }) {
   const refContainer = useRef(null);
@@ -17,7 +17,7 @@ function AddCard({ setValue, value, title, setTitle, addCard, url }) {
       title: title.trim(),
       type: "card",
     };
-    const ref = firebase.database().ref(`${url}/cards/${data.id}`);
+    const ref = app.database().ref(`${url}/cards/${data.id}`);
     ref.set(data);
     setTitle("");
     setValue("");

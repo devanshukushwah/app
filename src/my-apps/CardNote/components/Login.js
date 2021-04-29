@@ -3,35 +3,26 @@ import "./css/Signup.css";
 import { useAuth } from "../context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
-// import firebase from "../utils/firebase";
-// import Modal from "./Modal";
-
-function Signup() {
+function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  const { signup } = useAuth();
+  const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-  // const [modal, showModal] = useState(true);
-  // const [modaldata, setModalData] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("don");
-
-    if (passwordConfirmRef.current.value !== passwordRef.current.value) {
-      return setError("Password Not Match");
-    }
+    setError("wait...");
 
     try {
       setError("");
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await login(emailRef.current.value, passwordRef.current.value);
       history.push("/cardnote/");
     } catch {
-      setError("Failed to create Account/or already exist");
+      setError("Failed to Sign In");
     }
     setLoading(false);
   };
@@ -39,7 +30,7 @@ function Signup() {
     <main className="main">
       <div className="container">
         <center>
-          <h2>Signup Page</h2>
+          <h2>Login Page</h2>
           {error}
         </center>
         <form onSubmit={handleSubmit}>
@@ -61,25 +52,17 @@ function Signup() {
             required
           />
           <br></br>
-          <label>Confirm Password</label>
-          <br></br>
-          <input
-            type="password"
-            ref={passwordConfirmRef}
-            placeholder="Type Your Confirm Password"
-            required
-          />
-          <br></br>
           {/* {modal && <Modal {...modaldata} />} */}
           <button type="submit" disabled={loading} className="login-btn">
-            Sign Up
+            Log In
           </button>
           <br></br>
         </form>
         <div className="register">
-          <label htmlFor="signup">Have Account: </label>
-          <Link to="/cardnote/login" className="btn">
-            Log In
+          <label htmlFor="signup">Not Have Account: </label>
+          {/* <button name="signup">Sign Up</button> */}
+          <Link to="/cardnote/signup" className="btn">
+            Sign Up
           </Link>
         </div>
       </div>
@@ -87,4 +70,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;

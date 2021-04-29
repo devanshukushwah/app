@@ -1,9 +1,10 @@
 import React, { useRef, useEffect } from "react";
 import "./css/AddFolder-AddCard.css";
-import firebase from "../utils/firebase";
+import app from "../auth/authFirebase";
 
 function AddFolder({ title, addFolder, setTitle, url }) {
   const refContainer = useRef(null);
+
   useEffect(() => {
     refContainer.current.focus();
   }, []);
@@ -16,16 +17,8 @@ function AddFolder({ title, addFolder, setTitle, url }) {
       title: title.trim(),
       type: "folder",
     };
-    const ref = firebase.database().ref(`${url}/folders/${data.id}`);
+    const ref = app.database().ref(`${url}/folders/${data.id}`);
     ref.set(data);
-
-    const refForFolder = firebase
-      .database()
-      .ref(`cardnote/directory/${data.id}`);
-    const dataDir = {
-      id: new Date().getTime().toString(),
-    };
-    refForFolder.set(dataDir);
 
     setTitle("");
   };

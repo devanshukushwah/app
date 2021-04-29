@@ -11,6 +11,8 @@ function DirectoryAddressPath({
   const handleClick = (url, index) => {
     // console.log(directoryPath.length, index + 1);
     if (directoryPath.length === index + 1) return;
+    console.log(url);
+
     const newDirectoryPath = directoryPath.slice(0, index + 1);
     setListData(null);
     setDirectoryPath(newDirectoryPath);

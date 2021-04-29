@@ -2,30 +2,29 @@ import React, { useEffect, useState, useRef } from "react";
 import "./css/CardsContainer.css";
 import Card from "./Card";
 import Folder from "./Folder";
-import firebase from "../utils/firebase";
+import app from "../auth/authFirebase";
 import Loader from "./Loader";
 import NoItems from "./NoItems";
 import DirectoryAddressPath from "./DirectoryAddressPath";
 
-function CardsContainer({ isOperation, url, setUrl }) {
+function CardsContainer({ isOperation, url, setUrl, homepage }) {
   const [directoryPath, setDirectoryPath] = useState([
-    { title: "Homepage", url: url },
+    { title: "Homepage", url: homepage },
   ]);
   const [listData, setListData] = useState(null);
   const refContainer = useRef(null);
-
   useEffect(() => {
     const fetchdata = () => {
       const tempList = [];
 
-      const ref = firebase.database().ref(`${url}/folders/`);
+      const ref = app.database().ref(`${url}/folders/`);
       ref.once("value", (snapshot) => {
         const data = snapshot.val();
         for (let i in data) {
           tempList.push(data[i]);
         }
       });
-      const ref2 = firebase.database().ref(`${url}/cards/`);
+      const ref2 = app.database().ref(`${url}/cards/`);
       ref2
         .once("value", (snapshot) => {
           const data = snapshot.val();
@@ -49,8 +48,12 @@ function CardsContainer({ isOperation, url, setUrl }) {
         setUrl={setUrl}
       />
       <main className="cards-container" ref={refContainer}>
+        {/* for loading screen */}
         {!listData && <Loader />}
+
+        {/* for no items */}
         {listData && listData.length === 0 && <NoItems />}
+
         {listData &&
           listData.map((item) => {
             if (item.type === "folder") {

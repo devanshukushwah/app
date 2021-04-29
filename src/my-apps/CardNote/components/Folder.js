@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/Folder.css";
 import { FaFolder } from "react-icons/fa";
+import { useAuth } from "../context/AuthContext";
 
 function Folder({
   id,
@@ -11,12 +12,10 @@ function Folder({
   directoryPath,
   setDirectoryPath,
 }) {
+  const { currentUser } = useAuth();
   const handleFolderClick = () => {
-    // const ref = firebase
-    // .database()
-    // .ref(`cardnote/directory/${title + "-" + id}`);
-    // ref.set()
-    const tempUrl = `cardnote/directory/${id}`;
+    const user = currentUser.uid;
+    const tempUrl = `cardnote/${user}/directory/${id}`;
     setUrl(tempUrl);
     setListData(null);
     const data = {
