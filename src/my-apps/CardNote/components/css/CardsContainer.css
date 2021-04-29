@@ -6,6 +6,11 @@
   grid-auto-flow: row;
   gap: 10px;
 }
+@media screen and (max-width: 600px) {
+  .cards-container {
+    padding: 0.5rem 1rem;
+  }
+}
 
 @media screen and (max-width: 666px) {
   .cards-container {

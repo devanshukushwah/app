@@ -1,9 +1,8 @@
 header {
-  padding: 1rem 2rem;
+  padding: 1rem 1.7rem;
   background: #aeff4d;
   position: relative;
   z-index: 1;
-  width: 100%;
   display: grid;
   gap: 2px;
   grid-template-columns: repeat(4, 140px);
@@ -16,7 +15,7 @@ header button {
   align-items: center;
   gap: 2px;
   background-color: white;
-  border: none;
+  border: 1px solid black;
   border-radius: 4px;
   padding: 0.4rem 2rem;
   font-size: 15px;
@@ -37,12 +36,13 @@ header button p {
 
 @media screen and (max-width: 600px) {
   header {
+    padding: 1rem;
     grid-template-columns: repeat(4, 1fr);
+  }
+  header button {
+    padding: 0.4rem 1rem;
   }
   header button p {
     display: none;
-  }
-  header .log-out {
-    justify-self: inherit;
   }
 }
