@@ -28,6 +28,7 @@ function Signup() {
       history.push("/cardnote/");
     } catch {
       setError("Failed to create Account/or already exist");
+      console.log(error);
     }
     setLoading(false);
   };
@@ -54,7 +55,9 @@ function Signup() {
                 />
               </svg>
             </div>
-            <div className="message">NOTES MAKE EASILY</div>
+            <div className="message">
+              <p>NOTES MAKE EASILY</p>
+            </div>
           </div>
           <div className="right">
             <div className="signup-container">

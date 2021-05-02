@@ -23,7 +23,8 @@ function Login() {
       await login(emailRef.current.value, passwordRef.current.value);
       history.push("/cardnote/");
     } catch {
-      setError("Failed to Sign In");
+      alert("Failed to Sign In");
+      console.log(error);
     }
     setLoading(false);
   };

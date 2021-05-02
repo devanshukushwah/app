@@ -15,7 +15,7 @@
   width: 100%;
   flex-direction: column;
   justify-content: center;
-  padding: 60px 0;
+  /* padding: 60px 0; */
 
   /* display: grid; */
   /* justify-content: center; */
@@ -73,15 +73,32 @@
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-size: 16px;
   text-align: center;
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   text-align: center;
+  font-size: 16px;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
+
+  font-size: 16px;
   text-align: center;
+}
+
+@media screen and (max-width: 660px) {
+  .signup-container {
+    width: 300px;
+    height: 396px;
+  }
+  .signup-container form input {
+    height: 35.91px;
+  }
+  .signup-container form button {
+    height: 35.91px;
+  }
 }

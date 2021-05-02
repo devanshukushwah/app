@@ -6,13 +6,9 @@ function Home() {
   return (
     <div className="home-container">
       <h2>Home</h2>
-      <Link to="/cardnote">
-        <a>cardnote</a>
-      </Link>
+      <Link to="/cardnote">cardnote</Link>
       <br></br>
-      <Link to="/colorgenerator">
-        <a>colorgenerator</a>
-      </Link>
+      <Link to="/colorgenerator">colorgenerator</Link>
     </div>
   );
 }
