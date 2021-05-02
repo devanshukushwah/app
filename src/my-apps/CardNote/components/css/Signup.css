@@ -1,105 +1,183 @@
+.body {
+  overflow: hidden;
+}
 .signup-container {
-  width: 464px;
-  height: 396px;
+  display: flex;
+  height: 100vh;
+}
 
+.signup-container .container1 {
+  flex: 1;
+}
+.signup-container .container2 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container1 img {
+  width: 90px;
+  margin: 20px 0 0 30px;
+}
+
+.container1 p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 51px;
+  line-height: 60px;
+  text-align: center;
+
+  color: #deec86;
+  margin: 40px 0 0 30px;
+}
+
+.signup-form {
   background: #ffffff;
   border: 1px solid #efefef;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-}
-
-.signup-container form {
+  padding: 62px 44px;
   display: flex;
-  height: 100%;
-  width: 100%;
   flex-direction: column;
-  justify-content: center;
-  /* padding: 60px 0; */
-
-  /* display: grid; */
-  /* justify-content: center; */
-  /* row-gap: 10px; */
-  /* place-items: center; */
-  /* justify-items: center; */
+  text-align: center;
+  gap: 15px;
 }
-.signup-container form input {
-  height: 45.91px;
 
+.signup-form input {
+  height: 45.91px;
+  width: 376px;
+  border: none;
+  padding: 0 10px;
   background: #efefef;
-  border: none;
-  padding: 0 10px;
-  margin: 0 44px;
 }
-.signup-container form button {
+
+.signup-form button {
+  width: 376px;
   height: 45.91px;
+  border: none;
+  background: #deec86;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-  background: #deec86;
-  border: none;
-  padding: 0 10px;
-  margin: 0 44px;
-}
-.signup-container form button {
-  height: 45.91px;
-
-  background: #deec86;
-  border: none;
-  padding: 0 10px;
-  margin: 0 44px;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 21px;
-  align-items: center;
   text-align: center;
 
   color: #ffffff;
 }
-.signup-container form button:hover {
-  background: #ccbc66;
-}
-.signup-container form button:active {
-  transform: scale(0.98);
-}
+
 .signup-register {
-  margin: 0 auto;
-  align-items: center;
+  text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .signup-register .register-btn {
   text-decoration: none;
-  color: rgb(8, 8, 242);
+  color: blue;
 }
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
   text-align: center;
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
   text-align: center;
-  font-size: 16px;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
   text-align: center;
 }
 
-@media screen and (max-width: 660px) {
+.body .bottom {
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+}
+
+@media (max-width: 970px) {
+  .body {
+    overflow: hidden;
+  }
+  #bottom-design {
+    display: none;
+  }
   .signup-container {
-    width: 300px;
-    height: 396px;
+    flex-direction: column;
   }
-  .signup-container form input {
-    height: 35.91px;
+  .container1 {
+    /* flex: 0; */
+    display: flex;
+    align-items: flex-start;
   }
-  .signup-container form button {
-    height: 35.91px;
+  .container2 {
+    /* flex: 1; */
+    display: flex;
+    align-items: flex-start;
+    transform: translateY(-10%);
+  }
+  .container1 p {
+    /* margin-top: 20px; */
+    font-size: 25px;
+    /* justify-self: baseline; */
+  }
+}
+
+@media (max-width: 375px) {
+  /* .body {
+    display: none;
+  } */
+  .container1 p {
+    /* margin-top: 20px; */
+    font-size: 19px;
+    /* justify-self: baseline; */
+  }
+  .signup-container {
+    flex-direction: column;
+    height: 80vh;
+  }
+  .signup-form {
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .signup-form input {
+    height: 45.91px;
+    width: 276px;
+  }
+
+  .signup-form button {
+    width: 276px;
+    height: 45.91px;
+  }
+}
+@media (max-width: 520px) {
+  .signup-form {
+    padding: 44px 35px;
+    /* text-align: center; */
   }
 }
