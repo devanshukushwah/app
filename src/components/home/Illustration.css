@@ -1,0 +1,75 @@
+svg {
+  max-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+#cloud-1 {
+  animation: cloud1 25s infinite linear;
+}
+#cloud-2 {
+  animation: cloud1 30s infinite linear;
+}
+#cloud-3 {
+  animation: cloud1 20s infinite linear;
+}
+
+#blue-car {
+  animation: bluecar 20s infinite linear;
+}
+#yellow-car {
+  animation: yellowcar 20s infinite linear;
+}
+
+@keyframes cloud1 {
+  0% {
+    transform: translateX(+100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes bluecar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(+100%);
+  }
+}
+@keyframes yellowcar {
+  0% {
+    transform: translateX(+100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+#left-tree-leaf,
+#right-tree-leaf {
+  animation: lefttree 300ms infinite linear alternate;
+  transform-origin: bottom;
+  transform-box: fill-box;
+}
+@keyframes lefttree {
+  0% {
+    transform: skewX(0);
+  }
+  100% {
+    transform: skewX(+10deg);
+  }
+}
+
+#sun {
+  animation: sun 50s 1 linear;
+}
+@keyframes sun {
+  0% {
+    transform: translateY(+15%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

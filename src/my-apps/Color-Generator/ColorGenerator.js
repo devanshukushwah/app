@@ -25,7 +25,7 @@ function ColorGenerator() {
     <main>
       <section className="color-container">
         <h2>Colors Generator</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-color">
           <input
             type="text"
             onChange={(e) => setColor(e.target.value)}

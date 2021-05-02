@@ -1,0 +1,75 @@
+.cardnote-design-body {
+  height: 100vh;
+  /* background: url("../Icons/bottom-full-design\ .svg") no-repeat fixed bottom
+    right; */
+}
+.bottom-design svg {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  z-index: -2;
+}
+.cardnote-icon svg {
+  width: 100px;
+  padding-top: 20px;
+}
+
+.cardnote-design-container {
+  display: flex;
+  /* flex-direction: column; */
+}
+.cardnote-design-container .left {
+  align-items: baseline;
+  padding-left: 40px;
+  width: 50vw;
+}
+.cardnote-design-container .left .message {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 40px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 51px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #deec86;
+}
+.cardnote-design-container .right {
+  width: 50vw;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  /* background-color: chartreuse; */
+}
+
+@media screen and (max-width: 960px) {
+  #tilt-rectangle {
+    display: none;
+  }
+  .cardnote-design-container {
+    flex-direction: column;
+  }
+  .cardnote-design-container .left {
+    display: flex;
+    align-items: baseline;
+    padding-left: 40px;
+    width: 100vw;
+  }
+  .cardnote-design-container .right {
+    width: 100vw;
+    position: absolute;
+    height: 100vh;
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cardnote-design-container .left .message {
+    font-size: 31px;
+    display: grid;
+    width: 100vw;
+  }
+}

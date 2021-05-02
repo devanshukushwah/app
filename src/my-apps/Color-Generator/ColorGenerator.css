@@ -18,7 +18,6 @@
   margin-right: 2px;
 }
 .colorInput {
-  /* display: none; */
   height: 25px;
   padding: 0 5px;
   outline: none;
@@ -29,7 +28,7 @@ form {
   grid-template-columns: auto auto;
 }
 
-form button {
+.form-color button {
   border: none;
   color: whitesmoke;
   font-weight: bold;
@@ -37,10 +36,10 @@ form button {
   background-color: rgb(153, 208, 122);
   padding: 2px 5px;
 }
-form button:hover {
+.form-color button:hover {
   background-color: rgb(121, 199, 76);
 }
-form button:active {
+.form-color button:active {
   transform: scale(0.95);
 }
 
