@@ -69,6 +69,7 @@
 }
 .signup-register .register-btn {
   text-decoration: none;
+  color: rgb(8, 8, 242);
 }
 
 ::placeholder {

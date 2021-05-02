@@ -51,7 +51,9 @@ function Login() {
                 />
               </svg>
             </div>
-            <div className="message">NOTES MAKE EASILY</div>
+            <div className="message">
+              <p>NOTES MAKE EASILY</p>
+            </div>
           </div>
           <div className="right">
             <div className="signup-container">
