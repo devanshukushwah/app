@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./css/Signup.css";
 import { useAuth } from "../context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
@@ -14,6 +14,16 @@ function Signup() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,8 +89,8 @@ function Signup() {
           </div>
         </div>
         <img
-          src={window.innerWidth > 970 ? bottomFullDesign : bottomMobileDesing}
-          alt="bottom"
+          src={windowWidth > 970 ? bottomFullDesign : bottomMobileDesing}
+          alt="bottom-Design"
           className="bottom"
         />
       </section>

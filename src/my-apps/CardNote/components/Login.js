@@ -13,7 +13,7 @@ function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-  const [windowWidth, setWindowWidth] = useState(800);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     function handleResize() {
@@ -78,7 +78,7 @@ function Login() {
       </div>
       <img
         src={windowWidth > 970 ? bottomFullDesign : bottomMobileDesing}
-        alt="bottom"
+        alt="bottom-Design"
         className="bottom"
       />
     </section>
