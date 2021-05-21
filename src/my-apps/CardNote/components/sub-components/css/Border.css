@@ -1,0 +1,13 @@
+.border-line {
+  height: 22px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* background-color: black; */
+}
+.line {
+  background-color: #d9d4d4;
+  /* background-color: black; */
+  height: 1px;
+  width: 100%;
+}

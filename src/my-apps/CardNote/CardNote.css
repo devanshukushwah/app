@@ -1,0 +1,13 @@
+.sticky {
+  /* display: none; */
+  position: sticky;
+  z-index: 98;
+  top: 0;
+}
+/* body {
+  overflow: hidden;
+} */
+
+.scrolled {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}

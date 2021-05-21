@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./css/Signup.css";
 import { useAuth } from "../context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import logo from "./images/cardnoteCurveIcon.svg";
+import logo from "./images/cardnote-icon.svg";
 import bottomFullDesign from "./images/bottom-full-design.svg";
 import bottomMobileDesing from "./images/bottom-mobile-design.svg";
 
@@ -14,10 +14,6 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    document.body.backgroundColor = "#fff";
-  }, []);
 
   useEffect(() => {
     function handleResize() {

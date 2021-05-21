@@ -1,4 +1,5 @@
 import "./App.css";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import CardNote from "./my-apps/CardNote/CardNote";
 import ColorGenerator from "./my-apps/Color-Generator/ColorGenerator";
@@ -9,22 +10,15 @@ import PrivateRoute from "./utils/PrivateRoute";
 import Home from "./components/home/Home";
 
 function App() {
+  useEffect(() => {
+    document.body.style.backgroundColor = "#fff";
+  }, []);
   return (
     <AuthProvider>
       <Router>
         <Switch>
           <Route exact path="/">
             <Home />
-            {/* <h1>Good this is home page</h1>
-            <h4>
-              <h2>Note: </h2> This is temporary! after next time, use direct
-              <a href="https://devanshukushwah.web.app/cardnote">
-                https://devanshukushwah.web.app/cardnote
-              </a>
-            </h4>
-            <Link to="/cardnote">CardNote</Link>
-            <br></br>
-            <Link to="/colorgenerator">color-generator</Link> */}
           </Route>
           <PrivateRoute exact path="/cardnote/" component={CardNote} />
           <Route exact path="/cardnote/signup">

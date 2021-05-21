@@ -1,0 +1,59 @@
+.directoryPath {
+  height: 30px;
+  background: #efefef;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 2px;
+  color: #333333;
+  user-select: none;
+  position: relative;
+  /* z-index: 999; */
+}
+
+.directoryPath .back {
+  background: transparent;
+  border: none;
+  outline: none;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  transition: all 0.2s linear;
+}
+.directoryPath .back:hover {
+  background: #d7d7d7;
+  border-radius: 50%;
+}
+.directoryPath .back:active {
+  transform: scale(0.9);
+}
+.directoryPath .url {
+  display: flex;
+  padding: 0 8px;
+  transition: all 0.2s linear;
+}
+.directoryPath .url:hover {
+  display: flex;
+  padding: 0 8px;
+  background: #d7d7d7;
+  border-radius: 5px;
+}
+.directoryPath .url article {
+  display: flex;
+  align-items: center;
+}
+.directoryPath .url article p {
+  cursor: pointer;
+}
+.directoryPath .url article p:active {
+  transform: scale(0.95);
+}
+.directoryPath .url article h3 {
+  cursor: default;
+  margin-left: 1px;
+}
+.directoryPath .url article p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

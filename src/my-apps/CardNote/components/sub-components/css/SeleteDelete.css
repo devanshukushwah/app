@@ -1,0 +1,14 @@
+.delete {
+  position: absolute;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border-radius: 4px;
+  border: 2px solid #8080ff;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.delete .tick {
+  font-size: 20px;
+  color: #8080ff;
+}

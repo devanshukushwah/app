@@ -1,0 +1,20 @@
+.card {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: 1px solid #d9d4d4;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+.card:active {
+  transform: scale(0.97);
+}
+
+p.word-wrap {
+  word-wrap: break-word;
+}

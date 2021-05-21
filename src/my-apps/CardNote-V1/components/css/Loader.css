@@ -1,13 +1,11 @@
 .loader {
   border-radius: 4px;
-  background: #ffffff;
-  /* border: 1px solid #d9d4d4; */
-  box-sizing: border-box;
+  background: #eee;
   /* border: 1px solid #595959; */
   /* margin: 5px 5px; */
   position: relative;
   /* height: 100%; */
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
 }
 
@@ -23,8 +21,8 @@
 .shimmer {
   width: 50%;
   height: 100%;
-  /* background: rgba(255, 255, 255, 0.8); */
-  background: #efefef;
+  color: white;
+  background: rgba(255, 255, 255, 0.8);
   /* background: black; */
   /* background: #eee; */
   box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);

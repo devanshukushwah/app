@@ -1,40 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./CardNote.css";
+import { GlobalProvider } from "./context/context";
+
+//components
 import TopHeader from "./components/TopHeader";
-import CardsContainer from "./components/CardsContainer";
-import { useAuth } from "./context/AuthContext";
-
+import DirectoryBar from "./components/DirectoryBar";
+import DirectoryPath from "./components/DirectoryPath";
+import CardContainer from "./components/CardContainer";
 function CardNote() {
-  const [isOperation, setIsOperation] = useState(true);
-  const [url, setUrl] = useState();
-  const { currentUser } = useAuth();
-  const [homepage, setHomepage] = useState(
-    `cardnote/${currentUser.uid}/directory/homepage`
-  );
-
-  useEffect(() => {
-    let user = "default";
-    if (currentUser !== null) user = currentUser.uid;
-
-    const tempUrl = `cardnote/${user}/directory/homepage`;
-    setUrl(tempUrl);
-  }, [currentUser]);
-
   return (
     <>
-      <TopHeader
-        url={url}
-        setUrl={setUrl}
-        setIsOperation={setIsOperation}
-        isOperation={isOperation}
-      />
-      <CardsContainer
-        url={url}
-        isOperation={isOperation}
-        setUrl={setUrl}
-        homepage={homepage}
-        setHomepage={setHomepage}
-      />
+      <GlobalProvider>
+        <TopHeader />
+        <section className="sticky">
+          <DirectoryBar />
+          <DirectoryPath />
+        </section>
+        <CardContainer />
+      </GlobalProvider>
     </>
   );
 }
