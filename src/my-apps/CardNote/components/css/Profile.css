@@ -4,7 +4,7 @@
   right: 15px;
   height: 0px;
   overflow: hidden;
-  transition: all 0.1s linear;
+  transition: all 0.2s linear;
   top: 40px;
 }
 
@@ -55,4 +55,9 @@
 .profile button:active {
   background-color: #6666b9;
   color: white;
+}
+@media only screen and (max-width: 400px) {
+  .profile {
+    min-width: 147px;
+  }
 }

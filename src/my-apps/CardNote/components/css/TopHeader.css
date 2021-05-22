@@ -34,3 +34,9 @@
   border-radius: 4px;
   padding: 0 10px;
 }
+
+@media only screen and (max-width: 400px) {
+  .cardnote-header p {
+    font-size: 18px;
+  }
+}
