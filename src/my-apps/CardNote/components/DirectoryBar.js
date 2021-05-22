@@ -1,6 +1,12 @@
 import React from "react";
 import "./css/DirectoryBar.css";
-import { AiFillFolderAdd, AiFillFileAdd, AiFillDelete } from "react-icons/ai";
+import {
+  AiFillFolderAdd,
+  AiFillFileAdd,
+  AiFillDelete,
+  AiFillAppstore,
+} from "react-icons/ai";
+import { GiConfirmed } from "react-icons/gi";
 import { useGlobalContext } from "../context/context";
 function DirectoryBar() {
   const {
@@ -36,10 +42,10 @@ function DirectoryBar() {
               className={`dir-btn ${isSelectAllOn && "selected"}`}
               onClick={handleSelectIn}
             >
-              <AiFillFolderAdd /> <p>Select All</p>
+              <AiFillAppstore /> <p>Select All</p>
             </button>
             <button className="dir-btn" onClick={deleteItem}>
-              <AiFillFileAdd /> <p>Confirm</p>
+              <GiConfirmed /> <p>Confirm</p>
             </button>
           </>
         ) : (

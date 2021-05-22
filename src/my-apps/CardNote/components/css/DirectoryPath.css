@@ -9,6 +9,7 @@
   user-select: none;
   position: relative;
   /* z-index: 999; */
+  transition: all 250ms linear;
 }
 
 .directoryPath .back {

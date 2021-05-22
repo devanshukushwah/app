@@ -28,7 +28,18 @@ section.modalBody {
 
 div.xross {
   display: flex;
-  justify-content: flex-end;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+div.xross p {
+  text-transform: uppercase;
+  background-color: red;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
 }
 div.xross button {
   background: none;

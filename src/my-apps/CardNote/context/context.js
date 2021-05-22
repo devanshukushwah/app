@@ -23,6 +23,11 @@ export function GlobalProvider({ children }) {
   const [isDeleteOn, setIsDeleteOn] = useState(false);
   const [isSelectAllOn, setIsSelectAllOn] = useState(false);
   const [isOperation, setIsOperation] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [errorType, setErrorType] = useState(null);
+  const toggleProfile = () => {
+    setProfile(!profile);
+  };
 
   const triggerOperation = () => {
     setIsOperation(!isOperation);
@@ -65,6 +70,12 @@ export function GlobalProvider({ children }) {
     setNormal(false);
     triggerFetchAgain();
   };
+  useEffect(() => {
+    let timeout = setTimeout(() => {
+      setIsError(false);
+      setErrorType(null);
+    }, 5000);
+  }, [isError]);
 
   const deleteOn = () => {
     setIsDeleteOn(true);
@@ -117,6 +128,11 @@ export function GlobalProvider({ children }) {
   };
 
   const addFolder = (title) => {
+    if (folders.find((item) => item.title === title)) {
+      setErrorType("Already Exist");
+      setIsError(true);
+      return;
+    }
     const data = {
       id: new Date().getTime().toString(),
       title: title.trim(),
@@ -130,6 +146,11 @@ export function GlobalProvider({ children }) {
   };
 
   const addCard = (title, value) => {
+    if (cards.find((item) => item.title === title)) {
+      setErrorType("Already Exist");
+      setIsError(true);
+      return;
+    }
     const data = {
       id: new Date().getTime().toString(),
       title: title.trim(),
@@ -248,6 +269,9 @@ export function GlobalProvider({ children }) {
     setIsSelectAllOn,
     handleDelete,
     handleSelectMark,
+    toggleProfile,
+    isError,
+    errorType,
   };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 }

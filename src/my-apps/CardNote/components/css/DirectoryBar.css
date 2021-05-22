@@ -43,10 +43,15 @@
   display: flex;
   margin-top: 2px;
   align-items: baseline;
-  font-size: 19px;
+  font-size: 18px;
 }
 
 .directory-bar .selected {
   background: white;
   color: #8cc63f;
+}
+@media only screen and (max-width: 400px) {
+  .dir-btn p {
+    font-size: 15px;
+  }
 }
