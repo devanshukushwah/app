@@ -32,10 +32,15 @@
   align-items: center;
   font-size: 110%;
   color: white;
+  transition: all 0.25s linear;
+  outline: none;
 }
 .directory-bar .dir-btn:active {
   background: white;
   color: #8cc63f;
+}
+.directory-bar button:active {
+  transform: scale(0.98);
 }
 
 .dir-btn p {

@@ -15,6 +15,7 @@ function Modal() {
       justifyContent: "space-between",
     };
   }
+
   return (
     <>
       <section className="background"></section>

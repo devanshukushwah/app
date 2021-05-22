@@ -146,11 +146,6 @@ export function GlobalProvider({ children }) {
   };
 
   const addCard = (title, value) => {
-    if (cards.find((item) => item.title === title)) {
-      setErrorType("Already Exist");
-      setIsError(true);
-      return;
-    }
     const data = {
       id: new Date().getTime().toString(),
       title: title.trim(),
