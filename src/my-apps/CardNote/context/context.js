@@ -66,7 +66,9 @@ export function GlobalProvider({ children }) {
         }
       }
     });
-    setIsDeleteOn(false);
+    setTimeout(() => {
+      setIsDeleteOn(false);
+    }, 280);
     setNormal(false);
     triggerFetchAgain();
   };
@@ -238,6 +240,7 @@ export function GlobalProvider({ children }) {
   const values = {
     folders,
     cards,
+    setCards,
     triggerFetchAgain,
     directory,
     setDirectory,

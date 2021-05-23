@@ -17,6 +17,8 @@ function DirectoryBar() {
     isSelectAllOn,
     setIsSelectAllOn,
     handleDelete,
+    folders,
+    cards,
   } = useGlobalContext();
 
   const handleFolder = () => {
@@ -26,7 +28,8 @@ function DirectoryBar() {
     openModal("card");
   };
   const handleDeleteIn = () => {
-    setIsDeleteOn(!isDeleteOn);
+    const bothSum = folders.length + cards.length;
+    if (bothSum !== 0) setIsDeleteOn(!isDeleteOn);
   };
   const handleSelectIn = () => {
     setIsSelectAllOn(!isSelectAllOn);

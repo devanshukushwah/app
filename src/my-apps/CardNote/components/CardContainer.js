@@ -3,8 +3,8 @@ import "./css/CardContainer.css";
 import { useGlobalContext } from "../context/context";
 
 //components
-import Folder from "./sub-components/Folder";
-import Card from "./sub-components/Card";
+import Folders from "./sub-components/Folders";
+import Cards from "./sub-components/Cards";
 import Border from "./sub-components/Border";
 import NoItems from "./NoItems";
 import Loader from "./Loader";
@@ -15,9 +15,6 @@ function CardContainer() {
   useEffect(() => {
     document.body.style.backgroundColor = "#eeeeee";
   }, []);
-  // useEffect(() => {
-  //   console.log("cardcontainer");
-  // }, [isOperation]);
 
   return (
     <>
@@ -26,18 +23,9 @@ function CardContainer() {
       ) : (
         <main className="folderCardsBody">
           {folders.length + cards.length === 0 && <NoItems />}
-          <section className="folderContainer col">
-            {folders.map((item) => {
-              return <Folder key={item.id} {...item} />;
-            })}
-          </section>
+          <Folders />
           {folders.length !== 0 && cards.length !== 0 && <Border />}
-
-          <section className="cardcontainer col">
-            {cards.map((item) => {
-              return <Card key={item.id} {...item} />;
-            })}
-          </section>
+          <Cards />
         </main>
       )}
     </>
