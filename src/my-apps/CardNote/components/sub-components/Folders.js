@@ -1,9 +1,7 @@
 import React from "react";
 import { FaFolder } from "react-icons/fa";
-import { RiFolderUserFill } from "react-icons/ri";
 import { useGlobalContext } from "../../context/context";
 import "./css/Folder.css";
-// import "../css/CardContainer.css";
 import SeleteDelete from "./SeleteDelete";
 
 function Folders() {

@@ -16,7 +16,7 @@ export function GlobalProvider({ children }) {
   const [normal, setNormal] = useState(true);
   const [isModal, setIsModal] = useState(false);
   const [modalType, setModalType] = useState(null);
-  const [profile, setProfile] = useState(false);
+  const [isProfile, setProfile] = useState(false);
   const [directory, setDirectory] = useState([
     { id: 1, name: "Homepage", url: homepage },
   ]);
@@ -26,7 +26,7 @@ export function GlobalProvider({ children }) {
   const [isError, setIsError] = useState(false);
   const [errorType, setErrorType] = useState(null);
   const toggleProfile = () => {
-    setProfile(!profile);
+    setProfile(!isProfile);
   };
 
   const triggerOperation = () => {
@@ -254,7 +254,7 @@ export function GlobalProvider({ children }) {
     openModal,
     isModal,
     modalType,
-    profile,
+    isProfile,
     setProfile,
     openProfile,
     closeProfile,

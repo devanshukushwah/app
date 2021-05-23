@@ -6,14 +6,14 @@ import { useGlobalContext } from "../context/context";
 
 function Profile() {
   const { logout } = useAuth();
-  const { profile } = useGlobalContext();
+  const { isProfile } = useGlobalContext();
   // React.useEffect(() => {
   //   console.log("profile");
   // }, [profile]);
   return (
     <main
       className={
-        profile ? "profile-container show-container" : "profile-container"
+        isProfile ? "profile-container show-container" : "profile-container"
       }
     >
       <div className="tip"></div>

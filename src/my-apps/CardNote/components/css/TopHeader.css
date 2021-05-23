@@ -40,6 +40,14 @@
   background-color: black;
   transform: scale(0.98);
 }
+.profile-toggler .downArrow {
+  display: flex;
+  align-items: center;
+  transition: all 0.25s linear;
+}
+.upArrow {
+  transform: rotate(180deg);
+}
 
 @media only screen and (max-width: 400px) {
   .cardnote-header p {

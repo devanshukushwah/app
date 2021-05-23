@@ -6,7 +6,7 @@ import logo from "./images/cardnoteCurveIcon.svg";
 import Modal from "./Modal";
 import Profile from "./Profile";
 function TopHeader() {
-  const { isModal, toggleProfile } = useGlobalContext();
+  const { isModal, toggleProfile, isProfile } = useGlobalContext();
   return (
     <>
       {isModal && <Modal />}
@@ -14,7 +14,9 @@ function TopHeader() {
         <img src={logo} alt="cardnote" className="cardnote-logo" />
         <button className="profile-toggler" onClick={toggleProfile}>
           <p>My Account</p>
-          <CgChevronDown />
+          <div className={isProfile ? "downArrow upArrow" : "downArrow"}>
+            <CgChevronDown />
+          </div>
         </button>
       </header>
       <Profile />
