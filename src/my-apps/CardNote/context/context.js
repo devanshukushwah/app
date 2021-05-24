@@ -25,6 +25,22 @@ export function GlobalProvider({ children }) {
   const [isOperation, setIsOperation] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errorType, setErrorType] = useState(null);
+  const [isRecycleBin, setIsRecycleBin] = useState(false);
+
+  const recycleBinOn = () => {
+    const tempZeroIndex = [{ ...directory[0], name: "Recyclebin" }];
+    setDirectory(tempZeroIndex);
+    setIsRecycleBin(true);
+  };
+  const recycleBinOff = () => {
+    const tempZeroIndex = [{ ...directory[0], name: "Homepage" }];
+    setDirectory(tempZeroIndex);
+    setIsRecycleBin(false);
+  };
+  useEffect(() => {
+    triggerFetchAgain();
+  }, [isRecycleBin]);
+
   const toggleProfile = () => {
     setProfile(!isProfile);
   };
@@ -47,31 +63,59 @@ export function GlobalProvider({ children }) {
     triggerOperation();
   };
 
+  // const emptyBin = () => {
+  //   let del = folders.concat(cards);
+  //   if (del.length === 0) return;
+
+  //   del.map((item) => {
+  //     if (item.clicked) {
+  //       if (item.type === "folder") {
+  //         const ref = app.database().ref(`${url}/folders/`);
+  //         ref.child(item.id).remove();
+  //         const ref2 = app
+  //           .database()
+  //           .ref(`cardnote/${currentUser.uid}/directory/`);
+  //         ref2.child(item.id).remove();
+  //       } else {
+  //         const ref = app.database().ref(`${url}/cards/`);
+  //         ref.child(item.id).remove();
+  //       }
+  //     }
+  //   });
+  //   setTimeout(() => {
+  //     setIsDeleteOn(false);
+  //   }, 280);
+  //   setNormal(false);
+  //   triggerFetchAgain();
+  // };
+
   const deleteItem = () => {
     let del = folders.concat(cards);
     if (del.length === 0) return;
+    const trashType = isRecycleBin ? false : true;
 
     del.map((item) => {
-      if (item.clicked) {
-        if (item.type === "folder") {
-          const ref = app.database().ref(`${url}/folders/`);
-          ref.child(item.id).remove();
-          const ref2 = app
-            .database()
-            .ref(`cardnote/${currentUser.uid}/directory/`);
-          ref2.child(item.id).remove();
-        } else {
-          const ref = app.database().ref(`${url}/cards/`);
-          ref.child(item.id).remove();
-        }
+      if (!item.clicked) return;
+      if (item.type === "folder") {
+        const ref = app.database().ref(`${url}/${item.id}/`);
+        ref.set({ ...item, trash: trashType });
+        const ref2 = app
+          .database()
+          .ref(`cardnote/${currentUser.uid}/directory/${item.id}/`);
+        ref2.set({ ...item, trash: trashType });
+      } else {
+        const ref = app.database().ref(`${url}/${item.id}`);
+        ref.set({ ...item, trash: trashType });
       }
     });
+
     setTimeout(() => {
       setIsDeleteOn(false);
     }, 280);
     setNormal(false);
     triggerFetchAgain();
   };
+
   useEffect(() => {
     let timeout = setTimeout(() => {
       setIsError(false);
@@ -139,8 +183,9 @@ export function GlobalProvider({ children }) {
       id: new Date().getTime().toString(),
       title: title.trim(),
       type: "folder",
+      trash: false,
     };
-    const ref = app.database().ref(`${url}/folders/${data.id}`);
+    const ref = app.database().ref(`${url}/${data.id}`);
     ref.set(data);
     setNormal(false);
     triggerFetchAgain();
@@ -153,8 +198,9 @@ export function GlobalProvider({ children }) {
       title: title.trim(),
       value: value.trim(),
       type: "card",
+      trash: false,
     };
-    const ref = app.database().ref(`${url}/cards/${data.id}`);
+    const ref = app.database().ref(`${url}/${data.id}`);
     ref.set(data);
     setNormal(false);
     triggerFetchAgain();
@@ -185,23 +231,35 @@ export function GlobalProvider({ children }) {
     const tempFolders = [];
     const tempCards = [];
     if (normal === true) setLoading(true);
-    const ref = app.database().ref(`${url}/folders/`);
-    ref.once("value", (snapshot) => {
-      const data = snapshot.val();
-      for (let i in data) {
-        const tempItem = { ...data[i], clicked: false };
-        tempFolders.push(tempItem);
-      }
-    });
-    const ref2 = app.database().ref(`${url}/cards/`);
+    // const ref = app.database().ref(`${url}/folders/`);
+    // ref.once("value", (snapshot) => {
+    //   const data = snapshot.val();
+    //   for (let i in data) {
+    //     const tempItem = { ...data[i], clicked: false,trash:false };
+    //     tempFolders.push(tempItem);
+    //   }
+    // });
+    const ref2 = app.database().ref(`${url}/`);
     ref2
+      .orderByChild("title")
       .once("value", (snapshot) => {
-        const data = snapshot.val();
-
-        for (let i in data) {
-          const tempItem = { ...data[i], clicked: false };
-          tempCards.push(tempItem);
-        }
+        snapshot.forEach(function (child) {
+          // if (child.val().trash) return;
+          if (isRecycleBin ? !child.val().trash : child.val().trash) return;
+          const tempItem = { ...child.val(), clicked: false };
+          tempItem.type === "folder"
+            ? tempFolders.push(tempItem)
+            : tempCards.push(tempItem);
+        });
+        // const data = snapshot.val();
+        // console.log(data);
+        // for (let i in data) {
+        //   const tempItem = { ...data[i], clicked: false };
+        //   tempItem.type === "folder"
+        //     ? tempFolders.push(tempItem)
+        //     : tempCards.push(tempItem);
+        // tempCards.push(tempItem);
+        // }
       })
       .then(() => {
         setFolders(tempFolders);
@@ -270,6 +328,9 @@ export function GlobalProvider({ children }) {
     toggleProfile,
     isError,
     errorType,
+    isRecycleBin,
+    recycleBinOn,
+    recycleBinOff,
   };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 }

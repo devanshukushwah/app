@@ -10,6 +10,8 @@
   box-sizing: border-box;
   position: relative;
   z-index: 1;
+  font-family: poppins;
+  cursor: pointer;
 }
 
 .folderCard:active {

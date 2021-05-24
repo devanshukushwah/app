@@ -17,7 +17,7 @@ function Signup() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    document.body.backgroundColor = "#fff";
+    document.body.style.backgroundColor = "white";
   }, []);
 
   useEffect(() => {

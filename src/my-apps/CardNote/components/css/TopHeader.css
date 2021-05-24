@@ -35,6 +35,7 @@
   border-radius: 4px;
   padding: 0 10px;
   transition: all 0.1s linear;
+  cursor: pointer;
 }
 .profile-toggler:active {
   background-color: black;

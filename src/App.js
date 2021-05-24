@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <PrivateRoute exact path="/cardnote/" component={CardNote} />
+          <PrivateRoute exact path="/cardnote" component={CardNote} />
           <Route exact path="/cardnote/signup">
             <Signup />
           </Route>

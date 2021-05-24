@@ -3,13 +3,11 @@ import { useAuth } from "../context/AuthContext";
 import "./css/Profile.css";
 import { BiLogOut } from "react-icons/bi";
 import { useGlobalContext } from "../context/context";
+import RecycleBinButton from "./sub-components/RecycleBinButton";
 
 function Profile() {
   const { logout } = useAuth();
   const { isProfile } = useGlobalContext();
-  // React.useEffect(() => {
-  //   console.log("profile");
-  // }, [profile]);
   return (
     <main
       className={
@@ -18,9 +16,10 @@ function Profile() {
     >
       <div className="tip"></div>
       <div className="profile">
-        <button onClick={logout}>
+        <RecycleBinButton />
+        <button className="btn" onClick={logout}>
           <BiLogOut />
-          <p>LOGOUT</p>
+          <p>Logout</p>
         </button>
       </div>
     </main>

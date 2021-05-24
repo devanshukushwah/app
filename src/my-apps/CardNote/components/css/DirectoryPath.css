@@ -45,6 +45,8 @@
   align-items: center;
 }
 .directoryPath .url article p {
+  font-family: Poppins;
+  font-weight: 500;
   cursor: pointer;
 }
 .directoryPath .url article p:active {
@@ -52,7 +54,8 @@
 }
 .directoryPath .url article h3 {
   cursor: default;
-  margin-left: 1px;
+  margin-right: 1px;
+  margin-top: 2px;
 }
 .directoryPath .url article p:hover {
   cursor: pointer;

@@ -10,7 +10,8 @@
   box-sizing: border-box;
   position: relative;
   z-index: 1;
-  /* transition: all 5s linear; */
+  font-family: poppins;
+  cursor: pointer;
 }
 .card:active {
   transform: scale(0.97);

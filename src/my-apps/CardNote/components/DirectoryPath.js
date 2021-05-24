@@ -1,29 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 
 import "./css/DirectoryPath.css";
 import { useGlobalContext } from "../context/context";
 function DirectoryPath() {
-  const { clickOnBackButton, directory, clickOnPath, closeProfile } =
-    useGlobalContext();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const refScroll = useRef(null);
-
-  const onScroll = () => {
-    setIsScrolled(true);
-    closeProfile();
-  };
-  // useEffect(() => {
-  window.onscroll = () => {
-    window.pageYOffset > 60 ? onScroll() : setIsScrolled(false);
-  };
-  // }, []);
+  const { clickOnBackButton, directory, clickOnPath } = useGlobalContext();
 
   return (
-    <main
-      className={`directoryPath ${isScrolled && "scrolled"}`}
-      ref={refScroll}
-    >
+    <main className="directoryPath">
       <button className="back" onClick={clickOnBackButton}>
         <BsArrowLeftShort />
       </button>

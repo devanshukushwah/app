@@ -7,6 +7,7 @@ import {
   AiFillAppstore,
 } from "react-icons/ai";
 import { GiConfirmed } from "react-icons/gi";
+import { MdRestore } from "react-icons/md";
 import { useGlobalContext } from "../context/context";
 function DirectoryBar() {
   const {
@@ -19,6 +20,7 @@ function DirectoryBar() {
     handleDelete,
     folders,
     cards,
+    isRecycleBin,
   } = useGlobalContext();
 
   const handleFolder = () => {
@@ -29,7 +31,8 @@ function DirectoryBar() {
   };
   const handleDeleteIn = () => {
     const bothSum = folders.length + cards.length;
-    if (bothSum !== 0) setIsDeleteOn(!isDeleteOn);
+    if (bothSum === 0) return;
+    setIsDeleteOn(!isDeleteOn);
   };
   const handleSelectIn = () => {
     setIsSelectAllOn(!isSelectAllOn);
@@ -61,13 +64,21 @@ function DirectoryBar() {
             </button>
           </>
         )}
-
-        <button
-          className={`dir-btn ${isDeleteOn && "selected"}`}
-          onClick={handleDeleteIn}
-        >
-          <AiFillDelete /> <p>Delete</p>
-        </button>
+        {isRecycleBin ? (
+          <button
+            className={`dir-btn ${isDeleteOn && "selected"}`}
+            onClick={handleDeleteIn}
+          >
+            <MdRestore /> <p>Restore</p>
+          </button>
+        ) : (
+          <button
+            className={`dir-btn ${isDeleteOn && "selected"}`}
+            onClick={handleDeleteIn}
+          >
+            <AiFillDelete /> <p>Delete</p>
+          </button>
+        )}
       </section>
     </>
   );

@@ -4,18 +4,14 @@ import { GlobalProvider } from "./context/context";
 
 //components
 import TopHeader from "./components/TopHeader";
-import DirectoryBar from "./components/DirectoryBar";
-import DirectoryPath from "./components/DirectoryPath";
 import CardContainer from "./components/CardContainer";
+import Directory from "./components/Directory";
 function CardNote() {
   return (
     <>
       <GlobalProvider>
         <TopHeader />
-        <section className="sticky">
-          <DirectoryBar />
-          <DirectoryPath />
-        </section>
+        <Directory />
         <CardContainer />
       </GlobalProvider>
     </>
