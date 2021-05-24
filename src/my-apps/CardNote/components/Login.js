@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import logo from "./images/cardnoteCurveIcon.svg";
 import bottomFullDesign from "./images/bottom-full-design.svg";
 import bottomMobileDesing from "./images/bottom-mobile-design.svg";
+import LoadingLoader from "./LoadingLoader";
 
 function Login() {
   const emailRef = useRef();
@@ -16,7 +17,8 @@ function Login() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    document.body.style.backgroundColor = "white";
+    document.title = "CardNote";
+    // return () => document.title = "React-App"
   }, []);
 
   useEffect(() => {
@@ -68,7 +70,7 @@ function Login() {
             />
             <br></br>
             <button type="submit" disabled={loading} className="login-btn">
-              LOGIN
+              {loading ? <LoadingLoader /> : <p>LOGIN</p>}
             </button>
             <br></br>
             <div className="signup-register">

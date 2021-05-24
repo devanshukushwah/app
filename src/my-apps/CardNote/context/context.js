@@ -39,6 +39,7 @@ export function GlobalProvider({ children }) {
   };
   useEffect(() => {
     triggerFetchAgain();
+    setProfile(false);
   }, [isRecycleBin]);
 
   const toggleProfile = () => {

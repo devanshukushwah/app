@@ -14,6 +14,8 @@ function CardContainer() {
 
   useEffect(() => {
     document.body.style.backgroundColor = "#eeeeee";
+    document.title = "CardNote";
+    return () => (document.body.style.backgroundColor = "white");
   }, []);
 
   return (

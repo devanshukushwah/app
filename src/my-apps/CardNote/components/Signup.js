@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import logo from "./images/cardnoteCurveIcon.svg";
 import bottomFullDesign from "./images/bottom-full-design.svg";
 import bottomMobileDesing from "./images/bottom-mobile-design.svg";
+import LoadingLoader from "./LoadingLoader";
 
 function Signup() {
   const emailRef = useRef();
@@ -17,7 +18,9 @@ function Signup() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    document.body.style.backgroundColor = "white";
+    document.title = "CardNote";
+    // var link = document.querySelector("link[rel~='icon']");
+    // link.href = logo;
   }, []);
 
   useEffect(() => {
@@ -81,7 +84,7 @@ function Signup() {
                 required
               />
               <button type="submit" disabled={loading} className="signup-btn">
-                SIGNUP
+                {loading ? <LoadingLoader /> : <p>SIGNUP</p>}
               </button>
               <div className="signup-register">
                 <label>Already Have Account </label>
