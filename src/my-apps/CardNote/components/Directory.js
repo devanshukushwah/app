@@ -3,9 +3,10 @@ import { useGlobalContext } from "../context/context";
 import "./css/Directory.css";
 import DirectoryBar from "./DirectoryBar";
 import DirectoryPath from "./DirectoryPath";
+import RecycleBinDirectoryBar from "./RecycleBinDirectoryBar";
 
 function Directory() {
-  const { closeProfile } = useGlobalContext();
+  const { closeProfile, isRecycleBin } = useGlobalContext();
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -21,7 +22,8 @@ function Directory() {
     <>
       <section className={isScrolled ? "sticky scrolled" : "sticky"}>
         <DirectoryBar />
-        <DirectoryPath />
+
+        {isRecycleBin ? <RecycleBinDirectoryBar /> : <DirectoryPath />}
       </section>
     </>
   );

@@ -36,6 +36,7 @@
   transition: all 0.25s linear;
   outline: none;
   font-family: Poppins;
+  cursor: pointer;
 }
 .directory-bar .dir-btn:active {
   background: white;

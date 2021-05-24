@@ -11,11 +11,13 @@ function Folders() {
     isDeleteOn,
     setIsSelectAllOn,
     folders,
+    isRecycleBin,
   } = useGlobalContext();
 
   const handleClick = (id, title) => {
-    console.log(id, title);
-    isDeleteOn ? handleDelete(id, "folder") : clickedOnFolder(id, title);
+    isDeleteOn
+      ? handleDelete(id, "folder")
+      : !isRecycleBin && clickedOnFolder(id, title);
     setIsSelectAllOn(false);
   };
   return (
