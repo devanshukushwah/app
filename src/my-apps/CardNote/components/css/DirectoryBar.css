@@ -8,16 +8,7 @@
   gap: 6px;
   user-select: none;
   background-color: #8cc63f;
-  transition: all 5s linear;
-}
-
-.directory-bar .back {
-  background-color: transparent;
-  border: none;
-  height: 35px;
-  outline: none;
-  color: white;
-  font-size: 35px;
+  transition: all 2s ease-in;
 }
 
 .directory-bar .dir-btn {
@@ -33,11 +24,14 @@
   align-items: center;
   font-size: 110%;
   color: white;
-  transition: all 0.25s linear;
   outline: none;
   font-family: Poppins;
   cursor: pointer;
   gap: 2px;
+  overflow: hidden;
+}
+.directory-bar .dir-btn-none {
+  display: none;
 }
 .directory-bar .dir-btn:active {
   background: white;

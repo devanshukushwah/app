@@ -26,6 +26,7 @@ export function GlobalProvider({ children }) {
   const [isError, setIsError] = useState(false);
   const [errorType, setErrorType] = useState(null);
   const [isRecycleBin, setIsRecycleBin] = useState(false);
+  const [deleteType, setDeleteType] = useState(null);
 
   const recycleBinOn = () => {
     const tempZeroIndex = [{ ...directory[0], name: "Recyclebin" }];
@@ -65,31 +66,23 @@ export function GlobalProvider({ children }) {
     triggerOperation();
   };
 
-  // const emptyBin = () => {
-  //   let del = folders.concat(cards);
-  //   if (del.length === 0) return;
+  const emptyItem = () => {
+    let del = folders.concat(cards);
+    if (del.length === 0) return;
 
-  //   del.map((item) => {
-  //     if (item.clicked) {
-  //       if (item.type === "folder") {
-  //         const ref = app.database().ref(`${url}/folders/`);
-  //         ref.child(item.id).remove();
-  //         const ref2 = app
-  //           .database()
-  //           .ref(`cardnote/${currentUser.uid}/directory/`);
-  //         ref2.child(item.id).remove();
-  //       } else {
-  //         const ref = app.database().ref(`${url}/cards/`);
-  //         ref.child(item.id).remove();
-  //       }
-  //     }
-  //   });
-  //   setTimeout(() => {
-  //     setIsDeleteOn(false);
-  //   }, 280);
-  //   setNormal(false);
-  //   triggerFetchAgain();
-  // };
+    del.map((item) => {
+      if (item.clicked) {
+        console.log(item);
+        const ref = app.database().ref(`${item.binlocation}/`);
+        ref.remove();
+      }
+    });
+    setTimeout(() => {
+      setIsDeleteOn(false);
+    }, 280);
+    setNormal(false);
+    triggerFetchAgain();
+  };
 
   const deleteItem = () => {
     let del = folders.concat(cards);
@@ -278,7 +271,6 @@ export function GlobalProvider({ children }) {
         .then(() => {
           setFolders(tempFolders.reverse());
           setCards(tempCards.reverse());
-          console.log(folders, cards);
           if (normal === true) setLoading(false);
           setNormal(true);
         });
@@ -330,6 +322,11 @@ export function GlobalProvider({ children }) {
       triggerOperation();
     }
   };
+  const handleDeleteType = () => {
+    if (deleteType === null) return;
+    deleteType === "restore" ? deleteItem() : emptyItem();
+    setDeleteType(null);
+  };
 
   const values = {
     folders,
@@ -367,6 +364,10 @@ export function GlobalProvider({ children }) {
     isRecycleBin,
     recycleBinOn,
     recycleBinOff,
+    emptyItem,
+    deleteType,
+    setDeleteType,
+    handleDeleteType,
   };
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 }
