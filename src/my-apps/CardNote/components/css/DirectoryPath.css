@@ -55,7 +55,6 @@
 .directoryPath .url article h3 {
   cursor: default;
   margin-right: 1px;
-  margin-top: 2px;
 }
 .directoryPath .url article p:hover {
   cursor: pointer;

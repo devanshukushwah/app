@@ -37,6 +37,7 @@
   outline: none;
   font-family: Poppins;
   cursor: pointer;
+  gap: 2px;
 }
 .directory-bar .dir-btn:active {
   background: white;
@@ -47,7 +48,6 @@
 }
 
 .dir-btn p {
-  margin-left: 2px;
   display: flex;
   align-items: center;
   font-size: 18px;
@@ -58,7 +58,13 @@
   color: #8cc63f;
 }
 @media only screen and (max-width: 400px) {
+  .dir-btn {
+    gap: 1px;
+  }
   .dir-btn p {
     font-size: 15px;
+  }
+  .directory-bar .dir-btn p p {
+    display: none;
   }
 }

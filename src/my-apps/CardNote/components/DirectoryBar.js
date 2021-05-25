@@ -57,10 +57,16 @@ function DirectoryBar() {
         ) : (
           <>
             <button className="dir-btn" onClick={handleFolder}>
-              <AiFillFolderAdd /> <p>Add Folder</p>
+              <AiFillFolderAdd />{" "}
+              <p>
+                <p>Add </p>Folder
+              </p>
             </button>
             <button className="dir-btn" onClick={handleCard}>
-              <AiFillFileAdd /> <p>Add Card</p>
+              <AiFillFileAdd />{" "}
+              <p>
+                <p>Add </p> Card
+              </p>
             </button>
           </>
         )}
